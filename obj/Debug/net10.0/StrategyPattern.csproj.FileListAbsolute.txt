@@ -1,0 +1,14 @@
+/home/morris/Documents/Projects/StrategyPattern/bin/Debug/net10.0/StrategyPattern
+/home/morris/Documents/Projects/StrategyPattern/bin/Debug/net10.0/StrategyPattern.deps.json
+/home/morris/Documents/Projects/StrategyPattern/bin/Debug/net10.0/StrategyPattern.runtimeconfig.json
+/home/morris/Documents/Projects/StrategyPattern/bin/Debug/net10.0/StrategyPattern.dll
+/home/morris/Documents/Projects/StrategyPattern/bin/Debug/net10.0/StrategyPattern.pdb
+/home/morris/Documents/Projects/StrategyPattern/obj/Debug/net10.0/StrategyPattern.GeneratedMSBuildEditorConfig.editorconfig
+/home/morris/Documents/Projects/StrategyPattern/obj/Debug/net10.0/StrategyPattern.AssemblyInfoInputs.cache
+/home/morris/Documents/Projects/StrategyPattern/obj/Debug/net10.0/StrategyPattern.AssemblyInfo.cs
+/home/morris/Documents/Projects/StrategyPattern/obj/Debug/net10.0/StrategyPattern.csproj.CoreCompileInputs.cache
+/home/morris/Documents/Projects/StrategyPattern/obj/Debug/net10.0/StrategyPattern.dll
+/home/morris/Documents/Projects/StrategyPattern/obj/Debug/net10.0/refint/StrategyPattern.dll
+/home/morris/Documents/Projects/StrategyPattern/obj/Debug/net10.0/StrategyPattern.pdb
+/home/morris/Documents/Projects/StrategyPattern/obj/Debug/net10.0/StrategyPattern.genruntimeconfig.cache
+/home/morris/Documents/Projects/StrategyPattern/obj/Debug/net10.0/ref/StrategyPattern.dll
