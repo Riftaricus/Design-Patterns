@@ -12,6 +12,7 @@ namespace StrategyPattern
             Duck decoyDuck = new DecoyDuck();
             Duck rubberDuck = new RubberDuck();
             Duck robotDuck = new RobotDuck();
+            Duck penguin = new Penguin();
 
             mallardDuck.Display();
             mallardDuck.PerformFly();
@@ -37,6 +38,11 @@ namespace StrategyPattern
             robotDuck.PerformFly();
             robotDuck.PerformQuack();
             robotDuck.PerformSwim();
+
+            penguin.Display();
+            penguin.PerformFly();
+            penguin.PerformQuack();
+            penguin.PerformSwim();
         }
     }
 }

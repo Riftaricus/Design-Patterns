@@ -4,6 +4,7 @@ namespace StrategyPattern.Interfaces.QuackBehavior
     {
         public void Quack()
         {
+            Console.WriteLine("<<Silence>>");
         }
     }
 
