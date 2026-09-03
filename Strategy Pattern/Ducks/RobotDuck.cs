@@ -13,7 +13,7 @@ namespace StrategyPattern.Ducks
         public RobotDuck()
         {
             this.quackBehavior = new MuteQuack();
-            this.flyBehavior = new FlyNoWay();
+            this.flyBehavior = new FlyWithRocket();
             this.swimBehavior = new Sink();
         }
         public override void Display()
