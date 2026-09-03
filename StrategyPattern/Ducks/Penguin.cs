@@ -7,9 +7,9 @@ namespace StrategyPattern.Ducks
     {
         public Penguin()
         {
-            this.quackBehavior = new MuteQuack();
-            this.flyBehavior = new FlyNoWay();
-            this.swimBehavior = new Float();
+            SetQuackBehavior(new MuteQuack());
+            SetFlyBehavior(new FlyNoWay());
+            SetSwimBehavior(new Float());
         }
         public override void Display()
         {

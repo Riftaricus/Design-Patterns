@@ -1,6 +1,6 @@
 namespace StrategyPattern.Interfaces.FlyBehavior
 {
-    internal class FlyWithRocket : FlyBehavior
+    internal class FlyRocketPowered : FlyBehavior
     {
         public void Fly()
         {

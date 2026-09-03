@@ -13,6 +13,7 @@ namespace StrategyPattern
             Duck rubberDuck = new RubberDuck();
             Duck robotDuck = new RobotDuck();
             Duck penguin = new Penguin();
+            Duck modelDuck = new ModelDuck();
 
             mallardDuck.Display();
             mallardDuck.PerformFly();
@@ -43,6 +44,11 @@ namespace StrategyPattern
             penguin.PerformFly();
             penguin.PerformQuack();
             penguin.PerformSwim();
+
+            modelDuck.Display();
+            modelDuck.PerformFly();
+            modelDuck.PerformQuack();
+            modelDuck.PerformSwim();
         }
     }
 }

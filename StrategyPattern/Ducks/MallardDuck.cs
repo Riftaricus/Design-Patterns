@@ -12,9 +12,9 @@ namespace StrategyPattern.Ducks
     {
         public MallardDuck()
         {
-            this.quackBehavior = new RegularQuack();
-            this.flyBehavior = new FlyWithWings();
-            this.swimBehavior = new Float();
+            SetQuackBehavior(new RegularQuack());
+            SetFlyBehavior(new FlyWithWings());
+            SetSwimBehavior(new Float());
         }
         public override void Display()
         {

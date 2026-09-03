@@ -8,17 +8,17 @@ using StrategyPattern.Interfaces.QuackBehavior;
 
 namespace StrategyPattern.Ducks
 {
-    internal class DecoyDuck : Duck
+    internal class ModelDuck : Duck
     {
-        public DecoyDuck()
+        public ModelDuck()
         {
-            this.quackBehavior = new MuteQuack();
-            this.flyBehavior = new FlyNoWay();
-            this.swimBehavior = new Float();
+            SetQuackBehavior(new MuteQuack());
+            SetFlyBehavior(new FlyNoWay());
+            SetSwimBehavior(new Float());
         }
         public override void Display()
         {
-            Console.WriteLine("I'm a Decoy Duck");
+            Console.WriteLine("I'm a Model Duck");
         }
     }
 }
