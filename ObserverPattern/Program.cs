@@ -11,9 +11,9 @@ namespace ObserverPattern
 
             // Create instances of displays 
 
-            DisplayElement currentConditionDisplay = new CurrentConditionDisplay(weatherData);
-            DisplayElement forecastDisplay = new ForecastDisplay(weatherData);
-            DisplayElement statisticsDisplay = new StatisticsDisplay(weatherData);
+            Display currentConditionDisplay = new CurrentConditionDisplay(weatherData);
+            Display forecastDisplay = new ForecastDisplay(weatherData);
+            Display statisticsDisplay = new StatisticsDisplay(weatherData);
 
             weatherData.SetMeasurements(28, 65, 30.4f);
             weatherData.SetMeasurements(29, 70, 29.2f);
