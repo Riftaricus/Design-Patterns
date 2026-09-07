@@ -15,19 +15,31 @@ namespace ObserverPattern.Displays
         private float minTemp = 0;
         private int countUpdated = 0;
         private Subject weatherData;
-        public StatisticsDisplay(Subject weatherData) 
-        { 
+        private List<float> temperatures;
+        public StatisticsDisplay(Subject weatherData)
+        {
             // Set the field and register itself with the weatherdata subject
+            this.weatherData = weatherData;
+            weatherData.RegisterObserver(this);
+            temperatures = new List<float>();
         }
         public void Update(float temp, float humidity, float pressure)
         {
             // Set the correct fields with the relevant parameters
+            this.temperature = temp;
+            this.temperatures.Add(temp);
+
+            this.maxTemp = temperatures.Max();
+            this.minTemp = temperatures.Min();
+            this.sumTemperature = temperatures.Sum();
+            
             Display();
         }
 
         public void Display()
         {
             // Print the average, maximum and minimum temperature. Use appropriate fields
+            Console.WriteLine("[Statistics] " + "average: " + sumTemperature + " maximum: " + maxTemp + " minimum: " + minTemp);
         }
     }
 }
