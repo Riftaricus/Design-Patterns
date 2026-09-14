@@ -185,25 +185,23 @@ namespace DecoratorPattern
             PrintBeverage(irishCoffee);
 
             // Ketchup
-            Beverage ketchup = new Whiskey();
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup = new Ketchup(ketchup);
-            ketchup.Size = DecoratorPattern.Beverages.Size.VENDI;
-            PrintBeverage(ketchup);
+            Beverage ticketToSatan = new Whiskey();
+            for (int i = 0; i < 15; i++)
+            {
+                ticketToSatan = new Ketchup(ticketToSatan);
+                ticketToSatan = new Ice(ticketToSatan);
+                ticketToSatan = new Chocolate(ticketToSatan);
+                ticketToSatan = new Lemon(ticketToSatan);
+                ticketToSatan = new Honey(ticketToSatan);
+            }
+
+            ticketToSatan.Size = DecoratorPattern.Beverages.Size.VENDI;
+            PrintBeverage(ticketToSatan);
+
+            Beverage coffeeDracula = new Espresso();
+            coffeeDracula = new Blood(coffeeDracula);
+            coffeeDracula = new Blood(coffeeDracula);
+            PrintBeverage(coffeeDracula);
         }
 
         static void PrintBeverage(Beverage beverage)
