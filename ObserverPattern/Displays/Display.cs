@@ -11,7 +11,7 @@ namespace ObserverPattern.Displays
         public float temperature;
         public float humidity;
 
-        private Subject weatherData;
+        protected Subject weatherData;
 
         public Display(Subject weatherData)
         {

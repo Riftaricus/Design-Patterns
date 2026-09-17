@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 
 namespace ObserverPattern.Displays
 {
-    internal class StatisticsDisplay : Display
+    internal class StatisticsDisplay(Subject weatherData) : Display(weatherData)
     {
         private float sumTemperature = 0;
         private float maxTemp = 0;
         private float minTemp = 0;
         private int countUpdated = 0;
-        private Subject weatherData;
         private List<float> temperatures = new List<float>();
-        public StatisticsDisplay(Subject weatherData) : base(weatherData)
-        {
-            this.weatherData = weatherData;
-            this.temperatures = new List<float>();
-        }
+
         public override void Update(float temp, float humidity, float pressure)
         {
             // Set the correct fields with the relevant parameters

@@ -7,14 +7,8 @@ using System.Threading.Tasks;
 
 namespace ObserverPattern.Displays
 {
-    internal class CurrentConditionDisplay : Display
+    internal class CurrentConditionDisplay(Subject weatherData) : Display(weatherData)
     {
-        private Subject weatherData;
-
-        public CurrentConditionDisplay(Subject weatherData) : base(weatherData)
-        {
-            this.weatherData = weatherData;
-        }
 
         public override void DisplayData()
         {
