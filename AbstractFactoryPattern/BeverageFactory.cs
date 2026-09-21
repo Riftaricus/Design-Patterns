@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DecoratorPattern.BeverageTypes;
 using DecoratorPattern.Condiments;
 
 namespace AbstractFactoryPattern
 {
-
     public enum BeverageTypes
     {
         BLOOD,
@@ -31,29 +28,361 @@ namespace AbstractFactoryPattern
         MILK,
         STEAMED_MILK,
         WATER,
-        WHISKEY,
-
+        WHISKEY
     }
+
+    public enum DRINKS
+    {
+        ESPRESSO,
+        DOPPIO,
+        LUNGO,
+        MACCHIATO,
+        CORRETTA,
+        CON_PANNA,
+        CAPPUCINNO,
+        AMERICANO,
+        CAFFE_LATTE,
+        FLAT_WHITE,
+        ROMANA,
+        MOROCCHINO,
+        MOCHA,
+        BICERIN,
+        BREVE,
+        RAF_COFFEE,
+        MEAD_RAF,
+        GALAO,
+        CAFFE_AFFOGATO,
+        VIENNA_COFFEE,
+        GLACE,
+        CHOCOLATE_MILK,
+        DEMI_CREME,
+        LATTE_MACCHIATO,
+        FREDDO,
+        FRAPPUCCINO,
+        CARAMEL_FRAPPUCCINO,
+        FRAPPE,
+        IRISH_COFFEE
+    }
+
     public abstract class BeverageFactory
     {
+        public Beverage CreateDrink(DRINKS drink)
+        {
+            return drink switch
+            {
+                DRINKS.ESPRESSO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.DOPPIO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [BeverageTypes.ESPRESSO],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.LUNGO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [BeverageTypes.WATER],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.MACCHIATO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [BeverageTypes.MILK_FOAM],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.CORRETTA =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [BeverageTypes.LIQUOR],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.CON_PANNA =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [BeverageTypes.WHIP],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.CAPPUCINNO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.MILK_FOAM
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.AMERICANO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.WATER,
+                            BeverageTypes.WATER
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.CAFFE_LATTE =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.MILK_FOAM
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.FLAT_WHITE =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.STEAMED_MILK
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.ROMANA =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [BeverageTypes.LEMON],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.MOROCCHINO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.CHOCOLATE,
+                            BeverageTypes.MILK_FOAM
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.MOCHA =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.CHOCOLATE,
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.WHIP
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.BICERIN =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.BLACK_CHOCOLATE,
+                            BeverageTypes.WHITE_CHOCOLATE,
+                            BeverageTypes.WHIP
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.BREVE =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.MILK_FOAM,
+                            BeverageTypes.HALF_MILK
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.RAF_COFFEE =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.VANILLA_SUGAR,
+                            BeverageTypes.CREAM
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.MEAD_RAF =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.HONEY,
+                            BeverageTypes.CREAM
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.GALAO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.MILK_FOAM,
+                            BeverageTypes.MILK_FOAM
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.CAFFE_AFFOGATO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.ESPRESSO,
+                            BeverageTypes.ICECREAM
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.VIENNA_COFFEE =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.ESPRESSO,
+                            BeverageTypes.WHIP,
+                            BeverageTypes.WHIP
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.GLACE =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [BeverageTypes.ICECREAM],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.CHOCOLATE_MILK =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.CHOCOLATE,
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.STEAMED_MILK
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.DEMI_CREME =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.ESPRESSO,
+                            BeverageTypes.CREAM,
+                            BeverageTypes.CREAM
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.LATTE_MACCHIATO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.MILK_FOAM
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.FREDDO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.LIQUOR,
+                            BeverageTypes.ICE
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.FRAPPUCCINO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.ICE,
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.WHIP
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.CARAMEL_FRAPPUCCINO =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.ICE,
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.CREAM,
+                            BeverageTypes.SYRUP
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.FRAPPE =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.STEAMED_MILK,
+                            BeverageTypes.ICECREAM
+                        ],
+                        Size.GRANDE
+                    ),
+
+                DRINKS.IRISH_COFFEE =>
+                    CreateBeverage(
+                        BeverageTypes.ESPRESSO,
+                        [
+                            BeverageTypes.WHISKEY,
+                            BeverageTypes.WHIP
+                        ],
+                        Size.GRANDE
+                    ),
+
+                _ => throw new ArgumentOutOfRangeException(
+                    nameof(drink),
+                    drink,
+                    null
+                )
+            };
+        }
 
         public abstract Beverage PrepareDrink(Beverage beverage);
 
-        public Beverage CreateBeverage(BeverageTypes beverageBase, List<BeverageTypes> extras, Size size)
+        public Beverage CreateBeverage(
+            BeverageTypes beverageBase,
+            List<BeverageTypes> extras,
+            Size size)
         {
             Beverage? bev = null;
 
+            // Create the base beverage
             if (beverageBase == BeverageTypes.ESPRESSO)
+            {
                 bev = new Espresso();
-
+            }
             else if (beverageBase == BeverageTypes.CHOCOLATE)
+            {
                 bev = new Chocolate();
+            }
 
             if (bev == null)
             {
-                throw new ArgumentException("Unknown beverage base.", nameof(beverageBase));
+                throw new ArgumentException(
+                    "Unknown beverage base.",
+                    nameof(beverageBase)
+                );
             }
 
+            // Add decorators
             foreach (BeverageTypes condiment in extras)
             {
                 switch (condiment)
@@ -145,14 +474,17 @@ namespace AbstractFactoryPattern
                     case BeverageTypes.WHISKEY:
                         bev = new Whiskey(bev);
                         break;
+
+                    default:
+                        throw new ArgumentException(
+                            $"Unknown condiment: {condiment}"
+                        );
                 }
             }
 
             bev.Size = size;
 
-            bev = PrepareDrink(bev);
-
-            return bev;
+            return PrepareDrink(bev);
         }
     }
 }

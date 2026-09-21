@@ -34,7 +34,7 @@ namespace DecoratorPattern.BeverageTypes
         private Size size;
 
         protected string description = "Unknown";
-        protected Beverage baseBeverage = null;
+        protected Beverage? baseBeverage = null;
 
 
         public virtual string GetDescription()
