@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DecoratorPattern.Beverages
+namespace DecoratorPattern.BeverageTypes
 {
     public enum Size
     {
@@ -13,7 +13,7 @@ namespace DecoratorPattern.Beverages
         GRANDE,
         VENDI
     }
-    internal abstract class Beverage
+    public abstract class Beverage
     {
 
         public Size Size
@@ -46,7 +46,7 @@ namespace DecoratorPattern.Beverages
 
         public double GetCost()
         {
-            return cost() * (int)Size;
+            return cost() * 1 + (int)Size / 10;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DecoratorPattern.Beverages
+namespace DecoratorPattern.BeverageTypes
 {
     internal class Milk : Beverage
     {

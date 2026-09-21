@@ -1,4 +1,4 @@
-﻿using DecoratorPattern.Beverages;
+﻿using DecoratorPattern.BeverageTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

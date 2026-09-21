@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DecoratorPattern.Beverages
+namespace DecoratorPattern.BeverageTypes
 {
     internal class Chocolate : Beverage
     {
@@ -12,7 +12,7 @@ namespace DecoratorPattern.Beverages
         {
             description = "Chocolate";
             this.baseBeverage = beverage;
-        
+
         }
         public override string GetDescription()
         {

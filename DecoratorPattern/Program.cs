@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-using DecoratorPattern.Beverages;
+using DecoratorPattern.BeverageTypes;
 using DecoratorPattern.Condiments;
 
 namespace DecoratorPattern
@@ -195,7 +195,7 @@ namespace DecoratorPattern
                 ticketToSatan = new Honey(ticketToSatan);
             }
 
-            ticketToSatan.Size = DecoratorPattern.Beverages.Size.VENDI;
+            ticketToSatan.Size = DecoratorPattern.BeverageTypes.Size.VENDI;
             PrintBeverage(ticketToSatan);
 
             Beverage coffeeDracula = new Espresso();
