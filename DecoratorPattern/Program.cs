@@ -207,13 +207,17 @@ namespace DecoratorPattern
             test1.Size = BeverageTypes.Size.TALL;
             PrintBeverage(test1);
 
+            Beverage choc = new Chocolate();
+            choc.Size = BeverageTypes.Size.TALL;
+            PrintBeverage(choc);
+
             Beverage test2 = new Espresso();
             test2 = new Chocolate(test2);
-            test2.Size = BeverageTypes.Size.TALL;
+            test2.Size = BeverageTypes.Size.ANT;
             PrintBeverage(test2);
 
             Beverage test3 = new Espresso();
-            test3 = new Chocolate(test2);
+            test3 = new Chocolate(test3);
             test3.Size = BeverageTypes.Size.TALL;
             PrintBeverage(test3);
         }
