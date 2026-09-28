@@ -18,7 +18,7 @@ namespace Singleton
             boiled = false;
         }
 
-        // [MethodImpl(MethodImplOptions.Synchronized)]
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public static ChocolateBoiler GetInstance()
         {
             if (boilerInstance == null)
