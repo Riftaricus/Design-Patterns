@@ -202,6 +202,20 @@ namespace DecoratorPattern
             coffeeDracula = new Blood(coffeeDracula);
             coffeeDracula = new Blood(coffeeDracula);
             PrintBeverage(coffeeDracula);
+
+            Beverage test1 = new Espresso();
+            test1.Size = BeverageTypes.Size.TALL;
+            PrintBeverage(test1);
+
+            Beverage test2 = new Espresso();
+            test2 = new Chocolate(test2);
+            test2.Size = BeverageTypes.Size.TALL;
+            PrintBeverage(test2);
+
+            Beverage test3 = new Espresso();
+            test3 = new Chocolate(test2);
+            test3.Size = BeverageTypes.Size.TALL;
+            PrintBeverage(test3);
         }
 
         static void PrintBeverage(Beverage beverage)
