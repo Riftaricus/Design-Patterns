@@ -7,15 +7,15 @@ namespace Singleton
         static void Main(string[] args)
         {
             ChocolateBoiler boiler = ChocolateBoiler.GetInstance();
-            Console.WriteLine(boiler.ToString());
+            Console.WriteLine($"Nothing - {boiler.ToString()}");
             boiler.boil();
-            Console.WriteLine(boiler.ToString());
-            boiler.drain();
-            Console.WriteLine(boiler.ToString());
+            Console.WriteLine($"Boiling - {boiler.ToString()}");
             boiler.fill();
-            Console.WriteLine(boiler.ToString());
+            Console.WriteLine($"Filling - {boiler.ToString()}");
             boiler.boil();
-            Console.WriteLine(boiler.ToString());
+            Console.WriteLine($"Boiling - {boiler.ToString()}");
+            boiler.drain();
+            Console.WriteLine($"Draining - {boiler.ToString()}");
         }
     }
 }
