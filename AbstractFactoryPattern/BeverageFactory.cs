@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DecoratorPattern;
 using DecoratorPattern.BeverageTypes;
 using DecoratorPattern.Condiments;
 
@@ -484,7 +485,20 @@ namespace AbstractFactoryPattern
 
             bev.Size = size;
 
+            PrintBeverage(bev);
+
             return PrepareDrink(bev);
+        }
+
+        static void PrintBeverage(Beverage beverage)
+        {
+            Console.WriteLine(
+                beverage.GetDescription()
+                + " $"
+                + beverage.GetCost().ToString("#.##")
+                + " size "
+                + beverage.Size
+            );
         }
     }
 }

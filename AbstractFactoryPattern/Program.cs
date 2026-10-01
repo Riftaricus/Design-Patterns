@@ -7,26 +7,19 @@ namespace DecoratorPattern
     {
         static void Main(string[] args)
         {
-            BeverageFactory factory = new StarbucksFactory();
-
-            Beverage beverage;
+            BeverageFactory starBucksFactory = new StarbucksFactory();
 
             foreach (DRINKS drink in Enum.GetValues<DRINKS>())
             {
-                beverage = factory.CreateDrink(drink);
-                PrintBeverage(beverage);
+                Beverage beverage = starBucksFactory.CreateDrink(drink);
             }
-        }
 
-        static void PrintBeverage(Beverage beverage)
-        {
-            Console.WriteLine(
-                beverage.GetDescription()
-                + " $"
-                + beverage.GetCost().ToString("#.##")
-                + " size "
-                + beverage.Size
-            );
+            BeverageFactory draculaFactory = new DraculaFactory();
+
+            foreach (DRINKS drink in Enum.GetValues<DRINKS>())
+            {
+                Beverage beverage = draculaFactory.CreateDrink(drink);
+            }
         }
     }
 }
