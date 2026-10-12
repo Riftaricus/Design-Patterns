@@ -11,6 +11,7 @@ namespace CommandPattern.Classes.Commands
     {
         public void Execute()
         {
+
         }
 
         public void Undo()

@@ -18,10 +18,35 @@ namespace CommandPattern.Classes.Commands
 
         public void Execute()
         {
+            this.prevSpeed = ceilingFan.GetSpeed();
+            ceilingFan.High();
         }
 
         public void Undo()
         {
+            switch (prevSpeed)
+            {
+                case 0:
+                    {
+                        this.ceilingFan.Off();
+                        break;
+                    }
+                case 1:
+                    {
+                        this.ceilingFan.Low();
+                        break;
+                    }
+                case 2:
+                    {
+                        this.ceilingFan.Medium();
+                        break;
+                    }
+                case 3:
+                    {
+                        this.ceilingFan.High();
+                        break;
+                    }
+            }
         }
     }
 }

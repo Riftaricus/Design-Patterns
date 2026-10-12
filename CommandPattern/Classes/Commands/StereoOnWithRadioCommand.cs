@@ -16,10 +16,13 @@ namespace CommandPattern.Classes.Commands
         }
         public void Execute()
         {
+            stereo.On();
+            stereo.SetRadio();
         }
 
         public void Undo()
         {
+            stereo.Off();
         }
     }
 }

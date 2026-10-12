@@ -20,9 +20,16 @@ namespace CommandPattern
             Light kitchenLight = new Light("Kitchen");
             Light livingRoomLight = new Light("Living Room");
             CeilingFan livingRoomCeilingFan = new CeilingFan("Living Room");
-            GarageDoor garageDoor = new GarageDoor();
+            GarageDoor garageDoor = new GarageDoor(livingRoomLight);
             Stereo stereo = new Stereo();
             // Define and instantiate an Off and On command for each Vendor class
+
+            remoteControl.SetCommand(0, new LightOnCommand(livingRoomLight), new LightOffCommand(livingRoomLight));
+            remoteControl.SetCommand(1, new LightOnCommand(kitchenLight), new LightOffCommand(kitchenLight));
+            remoteControl.SetCommand(2, new CeilingFanHighCommand(livingRoomCeilingFan), new CeilingFanOffCommand(livingRoomCeilingFan));
+            remoteControl.SetCommand(3, new GarageDoorUpCommand(garageDoor), new GarageDoorDownCommand(garageDoor));
+            remoteControl.SetCommand(4, new StereoOnWithRadioCommand(stereo), new StereoOffCommand(stereo));
+
 
             /* Set the On and Off commands to the appropriate slot:
              * 
@@ -32,11 +39,27 @@ namespace CommandPattern
              * 4: Garage door
              * 5: Stereo
              */
-            remoteControl.OnButtonWasPushed(1);
-
             Console.WriteLine(remoteControl);
 
-            // Test the pressing of Buttons here. Don't forget to test the Undo button
+            remoteControl.OnButtonWasPushed(0);
+            remoteControl.OffButtonWasPushed(0);
+            remoteControl.Undo();
+
+            remoteControl.OnButtonWasPushed(1);
+            remoteControl.OffButtonWasPushed(1);
+            remoteControl.Undo();
+
+            remoteControl.OnButtonWasPushed(2);
+            remoteControl.OffButtonWasPushed(2);
+            remoteControl.Undo();
+
+            remoteControl.OnButtonWasPushed(3);
+            remoteControl.OffButtonWasPushed(3);
+            remoteControl.Undo();
+
+            remoteControl.OnButtonWasPushed(4);
+            remoteControl.OffButtonWasPushed(4);
+            remoteControl.Undo();
 
 
         }
