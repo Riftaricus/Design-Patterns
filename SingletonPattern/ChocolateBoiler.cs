@@ -10,55 +10,46 @@ namespace Singleton
         public bool IsEmpty { get { return this.empty; } }
         public bool IsBoiled { get { return this.boiled; } }
 
-        private static readonly object _balanceLock = new();
-        private static ChocolateBoiler? boilerInstance;
-        private ChocolateBoiler()
-        {
-            empty = true;
-            boiled = false;
-        }
+        private static readonly Lazy<ChocolateBoiler> instance = new();
 
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public static ChocolateBoiler GetInstance()
+        public static ChocolateBoiler GetInstance() => instance.Value;
+
+        private readonly object stateLock = new();
+
+        public void Fill()
         {
-            if (boilerInstance == null)
+            lock (stateLock)
             {
-                lock (_balanceLock)
+                if (empty)
                 {
-                    if (boilerInstance == null)
-                    {
-                        boilerInstance = new ChocolateBoiler();
-                    }
+                    empty = false;
+                    boiled = false;
                 }
-            }
-            return boilerInstance;
-        }
-
-        // To fill the boiler it must be empty and once it is full, we set the empty and boiled flag
-        public void fill()
-        {
-            if (empty)
-            {
-                empty = false;
-                boiled = false;
             }
         }
         // To drain the boiler, it must be full (non empty) and also boiled.
         // Once it is drained we set empty back to true
-        public void drain()
+        public void Drain()
         {
-            if (!empty && boiled)
+            lock (stateLock)
             {
-                empty = true;
+                if (!empty && boiled)
+                {
+                    empty = true;
+                }
             }
+
         }
         // To boil the mixture, the boiler has to be full and not already boiled.
         // Once it is boiled we set the boiled flag to true
-        public void boil()
+        public void Boil()
         {
-            if (!empty && !boiled)
+            lock (stateLock)
             {
-                boiled = true;
+                if (!empty && !boiled)
+                {
+                    boiled = true;
+                }
             }
         }
 
