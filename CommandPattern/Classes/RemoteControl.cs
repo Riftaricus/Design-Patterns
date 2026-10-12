@@ -12,7 +12,8 @@ namespace CommandPattern.Classes
     {
         Command[] onCommands = new Command[7];
         Command[] offCommands = new Command[7];
-        Command undoCommand;
+
+        List<Command> history = new List<Command>();
         public RemoteControl()
         {
             Command noCommand = new NoCommand();
@@ -21,7 +22,6 @@ namespace CommandPattern.Classes
                 onCommands[i] = new NoCommand();
                 offCommands[i] = new NoCommand();
             }
-            undoCommand = noCommand;
         }
 
         // This method must set the On and Off command to the slot provided
@@ -34,20 +34,22 @@ namespace CommandPattern.Classes
         // This method must call the OnCommand.Execute() method of the slot provided
         public void OnButtonWasPushed(int slot)
         {
-            undoCommand = this.onCommands[slot];
+            history.Append(this.onCommands[slot]);
             this.onCommands[slot].Execute();
         }
 
         // This method must call the OffCommand.Execute() method of the slot provided
         public void OffButtonWasPushed(int slot)
         {
-            undoCommand = this.onCommands[slot];
+            history.Append(this.offCommands[slot]);
             this.offCommands[slot].Execute();
         }
 
         public void Undo()
         {
-            undoCommand.Execute();
+            Command lastCommand = history.Last();
+            lastCommand.Undo();
+            history.Remove(lastCommand);
         }
 
         // Overwritten ToString() to print out each slot and its corresponding command.
