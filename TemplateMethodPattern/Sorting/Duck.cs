@@ -26,7 +26,7 @@ namespace TemplateMethodPattern.CompareTo
 
         public override string ToString()
         {
-            return $"{name} weights {weight}";
+            return $"{name} weighs {weight}";
         }
     }
 }
