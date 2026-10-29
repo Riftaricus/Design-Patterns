@@ -21,7 +21,7 @@ namespace TemplateMethodPattern.CompareTo
         {
             if (obj is not Duck other) throw new ArgumentException("Object is not a duck.");
 
-            return weight.CompareTo(other.weight);
+            return weight.CompareTo(other.weight) * -1;
         }
 
         public override string ToString()

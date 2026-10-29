@@ -48,6 +48,7 @@ namespace TemplateMethodPattern
             Console.WriteLine("Before sorting:");
             Display(ducks);
             ducks.Sort();
+            
             Console.WriteLine("After sorting:");
             Display(ducks);
         }
