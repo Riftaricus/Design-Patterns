@@ -14,43 +14,38 @@ namespace Singleton
 
         public static ChocolateBoiler GetInstance() => instance.Value;
 
-        private readonly object stateLock = new();
-
         public void Fill()
         {
-            lock (stateLock)
+
+            if (empty)
             {
-                if (empty)
-                {
-                    empty = false;
-                    boiled = false;
-                }
+                empty = false;
+                boiled = false;
             }
+
         }
         // To drain the boiler, it must be full (non empty) and also boiled.
         // Once it is drained we set empty back to true
         public void Drain()
         {
-            lock (stateLock)
+
+            if (!empty && boiled)
             {
-                if (!empty && boiled)
-                {
-                    empty = true;
-                }
+                empty = true;
             }
+
 
         }
         // To boil the mixture, the boiler has to be full and not already boiled.
         // Once it is boiled we set the boiled flag to true
         public void Boil()
         {
-            lock (stateLock)
+
+            if (!empty && !boiled)
             {
-                if (!empty && !boiled)
-                {
-                    boiled = true;
-                }
+                boiled = true;
             }
+
         }
 
         public override String ToString()
