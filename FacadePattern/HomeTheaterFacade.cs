@@ -19,58 +19,59 @@ namespace FacadePattern
         Tuner tuner
         )
         {
-            this.DvdPlayer = dvdPlayer;
-            this.Amplifier = amplifier;
-            this.CdPlayer = cdPlayer;
-            this.LawOfDementer = lawOfDementer;
-            this.PopcornPopper = popcornPopper;
-            this.Projector = projector;
-            this.Screen = screen;
-            this.TheaterLights = theaterLights;
-            this.Tuner = tuner;
+            this.dvdPlayer = dvdPlayer;
+            this.amplifier = amplifier;
+            this.cdPlayer = cdPlayer;
+            this.lawOfDementer = lawOfDementer;
+            this.popcornPopper = popcornPopper;
+            this.projector = projector;
+            this.screen = screen;
+            this.theaterLights = theaterLights;
+            this.tuner = tuner;
 
         }
 
-        public DvdPlayer DvdPlayer { get; private set; }
-        public Amplifier Amplifier { get; private set; }
-        public CdPlayer CdPlayer { get; private set; }
-        public LawOfDementer LawOfDementer { get; private set; }
-        public PopcornPopper PopcornPopper { get; private set; }
-        public Projector Projector { get; private set; }
-        public Screen Screen { get; private set; }
-        public TheaterLights TheaterLights { get; private set; }
-        public Tuner Tuner { get; private set; }
+        private DvdPlayer dvdPlayer;
+        private Amplifier amplifier;
+        private CdPlayer cdPlayer;
+        private LawOfDementer lawOfDementer;
+        private PopcornPopper popcornPopper;
+        private Projector projector;
+        private Screen screen;
+        private TheaterLights theaterLights;
+        private Tuner tuner;
 
         public void PlayMovie(String movie)
         {
-            PopcornPopper.On();
-            PopcornPopper.Pop();
 
-            TheaterLights.Dim(10);
+            popcornPopper.On();
+            popcornPopper.Pop();
 
-            Screen.Down();
+            theaterLights.Dim(10);
 
-            Projector.On();
-            Projector.SetInput(DvdPlayer);
-            Projector.WideScreenMode();
+            screen.Down();
 
-            Amplifier.On();
-            Amplifier.SetDvd(DvdPlayer);
-            Amplifier.SetSurroundSound();
-            Amplifier.SetVolume(5);
+            projector.On();
+            projector.SetInput(dvdPlayer);
+            projector.WideScreenMode();
 
-            DvdPlayer.On();
-            DvdPlayer.Play(movie);
+            amplifier.On();
+            amplifier.SetDvd(dvdPlayer);
+            amplifier.SetSurroundSound();
+            amplifier.SetVolume(5);
+
+            dvdPlayer.On();
+            dvdPlayer.Play(movie);
         }
 
         public void EndMovie()
         {
-            PopcornPopper.Off();
-            TheaterLights.On();
-            Screen.Up();
-            Projector.Off();
-            Amplifier.Off();
-            DvdPlayer.Off();
+            popcornPopper.Off();
+            theaterLights.On();
+            screen.Up();
+            projector.Off();
+            amplifier.Off();
+            dvdPlayer.Off();
         }
     }
 }
